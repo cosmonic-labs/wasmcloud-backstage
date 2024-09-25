@@ -1,0 +1,62 @@
+{
+  "name": "@cosmonic/backstage-plugin-wasmcloud-backend",
+  "version": "0.1.0",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "license": "Apache-2.0",
+  "private": true,
+  "publishConfig": {
+    "access": "public",
+    "main": "dist/index.cjs.js",
+    "types": "dist/index.d.ts"
+  },
+  "backstage": {
+    "role": "backend-plugin",
+    "pluginId": "wasmcloud",
+    "pluginPackages": [
+      "@cosmonic/backstage-plugin-wasmcloud",
+      "@cosmonic/backstage-plugin-wasmcloud-backend",
+      "@cosmonic/backstage-plugin-wasmcloud-common",
+      "@cosmonic/backstage-plugin-wasmcloud-react"
+    ]
+  },
+  "scripts": {
+    "start": "backstage-cli package start",
+    "build": "backstage-cli package build",
+    "lint": "backstage-cli package lint",
+    "test": "backstage-cli package test",
+    "clean": "backstage-cli package clean",
+    "prepack": "backstage-cli package prepack",
+    "postpack": "backstage-cli package postpack"
+  },
+  "dependencies": {
+    "@backstage/backend-common": "^0.25.0",
+    "@backstage/backend-defaults": "^0.5.0",
+    "@backstage/backend-plugin-api": "^1.0.0",
+    "@backstage/catalog-client": "^1.7.0",
+    "@backstage/catalog-model": "^1.7.0",
+    "@backstage/config": "^1.2.0",
+    "@backstage/errors": "^1.2.4",
+    "@backstage/plugin-catalog-node": "^1.13.0",
+    "@cosmonic/backstage-plugin-wasmcloud-common": "workspace:^",
+    "@wasmcloud/lattice-client-core": "^0.4.0",
+    "express": "^4.17.1",
+    "express-promise-router": "^4.1.0",
+    "node-fetch": "^2.6.7",
+    "websocket": "^1.0.35"
+  },
+  "devDependencies": {
+    "@backstage/backend-test-utils": "^1.0.0",
+    "@backstage/cli": "^0.27.1",
+    "@backstage/plugin-auth-backend": "^0.23.0",
+    "@backstage/plugin-auth-backend-module-guest-provider": "^0.2.0",
+    "@types/express": "*",
+    "@types/supertest": "^2.0.12",
+    "@types/websocket": "^1",
+    "msw": "^2.3.1",
+    "supertest": "^6.2.4"
+  },
+  "files": [
+    "dist"
+  ]
+}

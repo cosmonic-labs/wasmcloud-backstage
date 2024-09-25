@@ -59,6 +59,12 @@ import {
   isKubernetesAvailable,
 } from '@backstage/plugin-kubernetes';
 
+import {
+  EntityWasmCloudOverviewCard,
+  EntityWasmCloudDetailsPage,
+  isWasmCloudAvailable,
+} from '@cosmonic/backstage-plugin-wasmcloud';
+
 const techdocsContent = (
   <EntityTechdocsContent>
     <TechDocsAddons>
@@ -129,11 +135,22 @@ const entityWarningContent = (
 const overviewContent = (
   <Grid container spacing={3} alignItems="stretch">
     {entityWarningContent}
-    <Grid item md={6}>
+    <Grid item xs={12} md={6}>
       <EntityAboutCard variant="gridItem" />
     </Grid>
     <Grid item md={6} xs={12}>
-      <EntityCatalogGraphCard variant="gridItem" height={400} />
+      <Grid container direction="column">
+        <EntitySwitch>
+          <EntitySwitch.Case if={isWasmCloudAvailable}>
+            <Grid item>
+              <EntityWasmCloudOverviewCard />
+            </Grid>
+          </EntitySwitch.Case>
+        </EntitySwitch>
+        <Grid item>
+          <EntityCatalogGraphCard variant="gridItem" height={100} />
+        </Grid>
+      </Grid>
     </Grid>
 
     <Grid item md={4} xs={12}>
@@ -153,6 +170,14 @@ const serviceEntityPage = (
 
     <EntityLayout.Route path="/ci-cd" title="CI/CD">
       {cicdContent}
+    </EntityLayout.Route>
+
+    <EntityLayout.Route
+      path="/wasmcloud"
+      title="wasmCloud"
+      if={isWasmCloudAvailable}
+    >
+      <EntityWasmCloudDetailsPage />
     </EntityLayout.Route>
 
     <EntityLayout.Route
