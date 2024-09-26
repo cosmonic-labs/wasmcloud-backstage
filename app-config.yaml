@@ -1,9 +1,9 @@
 app:
-  title: Cosmonic Backstage App
+  title: Example Backstage App
   baseUrl: http://localhost:3000
 
 organization:
-  name: cosmonic
+  name: example
 
 backend:
   # Used for enabling authentication, secret is shared by all backend plugins
@@ -108,3 +108,10 @@ catalog:
 permission:
   # setting this to `false` will disable permissions
   enabled: true
+
+# default settings for a locally running wasmCloud lattice
+wasmcloud:
+  lattices:
+    - name: "default"
+      connection: "nats-ws"
+      latticeUrl: "ws://127.0.0.1:4223"
