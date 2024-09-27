@@ -33,12 +33,12 @@ yarn workspace backend add @cosmonic/backstage-plugin-wasmcloud-backend
 
 Add the following section to your `app-config.yaml`. Note that these are the default settings for a lattice that has been started with a WebSocket connection. If you have a different configuration for your NATS lattice, you should change these settings.
 
-```yaml:
+```yaml
 wasmcloud:
   lattices:
-    - name: "default"
-      connection: "nats-ws"
-      latticeUrl: "ws://127.0.0.1:4223"
+    - name: 'default'
+      connection: 'nats-ws'
+      latticeUrl: 'ws://127.0.0.1:4223'
 ```
 
 ### 3. Configure the Frontend Components as you like
