@@ -23,6 +23,9 @@ jobs:
       - name: Set up Node
         uses: ./.github/actions/setup-node
 
+      - name: build
+        run: yarn build
+
       - name: Publish package
         run: npm publish
         env:
