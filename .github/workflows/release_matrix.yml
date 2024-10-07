@@ -16,7 +16,7 @@ jobs:
         # Get a list of all workspaces in the monorepo, and collect them into a
         # JSON array of objects with keys: name, path, and tagPattern
         run: |
-          yarn workspaces list --json | jq --slurp 'map(select(.name | startswith("@")) | { name: .name, path: ("./" + .location), tagPattern: ("refs/tags/" + .location + "/v*") })' > /tmp/workspaces.json
+          yarn workspaces list --json | jq --slurp 'map(select(.name | startswith("@")) | { name: .name, path: ("./" + .location), tagPattern: ("refs/tags/" + .location + "/v") })' > /tmp/workspaces.json
           {
             echo "workspaces<<EOF"
             cat /tmp/workspaces.json
