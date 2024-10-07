@@ -1,0 +1,29 @@
+name: Release / NPM
+
+on:
+  workflow_call:
+    inputs:
+      workingDirectory:
+        description: 'The directory of the package to release'
+        required: true
+        type: string
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ${{ github.event.inputs.workingDirectory }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@d632683dd7b4114ad314bca15554477dd762a938
+
+      - name: Set up Node
+        uses: ./.github/actions/setup-node
+
+      - name: Publish package
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

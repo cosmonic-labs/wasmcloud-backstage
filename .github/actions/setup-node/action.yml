@@ -1,0 +1,21 @@
+name: Setup Node and Package Manager
+description: 'Set up Node.js and the package manager for the repository'
+
+runs:
+  using: composite
+  steps:
+    - name: Enable Corepack
+      shell: bash
+      run: |
+        corepack enable
+        yarn --version
+
+    - name: Set up Node.js
+      uses: actions/setup-node@0a44ba7841725637a19e28fa30b79a866c81b0a6
+      with:
+        node-version: '22'
+        cache: 'yarn'
+
+    - name: Install dependencies
+      shell: bash
+      run: yarn install

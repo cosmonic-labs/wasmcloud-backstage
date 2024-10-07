@@ -12,7 +12,7 @@ import {
 } from '@cosmonic/backstage-plugin-wasmcloud-react';
 
 export const WasmCloudDetailsPage = () => {
-  const { error, loading, value, retry } = useAppOverview();
+  const { loading, value } = useAppOverview();
 
   const apps = value ?? [];
 

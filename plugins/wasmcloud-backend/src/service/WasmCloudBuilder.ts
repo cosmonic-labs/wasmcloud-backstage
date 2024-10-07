@@ -38,7 +38,7 @@ export class WasmCloudBuilder {
     this.latticeSupplier = latticeSupplier;
   }
 
-  public async build() {
+  public async build(): Promise<WasmCloudBuilderResult> {
     const { logger } = this.env;
     logger.info('Initializing wasmCloud Backend');
 
@@ -50,7 +50,7 @@ export class WasmCloudBuilder {
 
     return {
       router,
-    } satisfies WasmCloudBuilderResult;
+    };
   }
 
   protected getLatticeSupplier() {
@@ -83,7 +83,7 @@ export class WasmCloudBuilder {
   protected async buildRouter(
     client: BackstageLatticeClient,
     latticeSupplier: WasmCloudLatticeSupplier,
-  ) {
+  ): Promise<Router> {
     const router = Router();
     router.use(express.json());
 
@@ -92,12 +92,12 @@ export class WasmCloudBuilder {
     });
 
     router.get('/lattices', async (_, response) => {
-      return response.json(await latticeSupplier.getLattices());
+      response.json(await latticeSupplier.getLattices());
     });
 
     router.get('/lattices/:latticeName/applications', (request, response) => {
       const { latticeName } = request.params;
-      return response.json(client.lattice(latticeName)?.applications.list());
+      response.json(client.lattice(latticeName)?.applications.list());
     });
 
     router.post('/applications/query', async (request, response) => {
@@ -105,12 +105,13 @@ export class WasmCloudBuilder {
         const entity = await getEntityFromReq(request, this.env);
         const result = await client.getApplicationsForEntity(entity);
 
-        return response.json(result);
+        response.json(result);
       } catch (e) {
         const message = e instanceof Error ? e.message : 'Unknown Error';
         this.env.logger.error(message);
-        return response.status(500).json({ status: 'failed', message });
+        response.status(500).json({ status: 'failed', message });
       }
+      return;
     });
 
     return router;
