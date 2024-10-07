@@ -22,7 +22,7 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    if: startsWith(github.ref, inputs.tagPattern)
+    if: startsWith(github.ref, ${{inputs.tagPattern}})
 
     defaults:
       run:
