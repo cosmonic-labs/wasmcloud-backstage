@@ -5320,9 +5320,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@backstage/plugin-user-settings@npm:^0.8.12":
-  version: 0.8.12
-  resolution: "@backstage/plugin-user-settings@npm:0.8.12"
+"@backstage/plugin-user-settings@npm:^0.8.13":
+  version: 0.8.13
+  resolution: "@backstage/plugin-user-settings@npm:0.8.13"
   dependencies:
     "@backstage/core-app-api": "npm:^1.15.0"
     "@backstage/core-compat-api": "npm:^0.3.0"
@@ -5330,7 +5330,7 @@ __metadata:
     "@backstage/core-plugin-api": "npm:^1.9.4"
     "@backstage/errors": "npm:^1.2.4"
     "@backstage/frontend-plugin-api": "npm:^0.8.0"
-    "@backstage/plugin-catalog-react": "npm:^1.13.0"
+    "@backstage/plugin-catalog-react": "npm:^1.13.1"
     "@backstage/plugin-signals-react": "npm:^0.0.5"
     "@backstage/plugin-user-settings-common": "npm:^0.0.1"
     "@backstage/theme": "npm:^0.5.7"
@@ -5345,7 +5345,7 @@ __metadata:
     react: ^16.13.1 || ^17.0.0 || ^18.0.0
     react-dom: ^16.13.1 || ^17.0.0 || ^18.0.0
     react-router-dom: 6.0.0-beta.0 || ^6.3.0
-  checksum: 10c0/0eb1a343362d1e16e61105d50f2cb7fba33990e04dad649912f6bb1bd2acb18504cda6b3a80cfc7cb5e804dc8d88f279c5998dab00346cc411472f4852fb6e76
+  checksum: 10c0/974d9806e071caf3d15c1da36227c63cea43231be5597e5f1110aa23fcce6f5eddb7c6cc7573ffea07aa9d106042057484423d29f7e6c4843b518879e7483f2f
   languageName: node
   linkType: hard
 
@@ -13705,7 +13705,7 @@ __metadata:
     "@backstage/plugin-techdocs": "npm:^1.10.9"
     "@backstage/plugin-techdocs-module-addons-contrib": "npm:^1.1.14"
     "@backstage/plugin-techdocs-react": "npm:^1.2.8"
-    "@backstage/plugin-user-settings": "npm:^0.8.12"
+    "@backstage/plugin-user-settings": "npm:^0.8.13"
     "@backstage/test-utils": "npm:^1.6.0"
     "@backstage/theme": "npm:^0.5.7"
     "@cosmonic/backstage-plugin-wasmcloud": "workspace:^"
