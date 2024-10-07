@@ -3,6 +3,10 @@ name: Release / NPM
 on:
   workflow_call:
     inputs:
+      name:
+        description: 'The name of the package to release'
+        required: true
+        type: string
       workingDirectory:
         description: 'The directory of the package to release'
         required: true
@@ -14,6 +18,8 @@ on:
 
 jobs:
   release:
+    name: ${{ inputs.name }}
+
     runs-on: ubuntu-latest
 
     if: startsWith(github.ref, inputs.tagPattern)

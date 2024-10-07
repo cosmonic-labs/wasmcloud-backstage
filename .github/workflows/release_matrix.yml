@@ -27,6 +27,8 @@ jobs:
       workspaces: ${{ steps.workspaces.outputs.workspaces }}
 
   release:
+    name: ${{ matrix.package.name }}
+
     needs: info
 
     strategy:
@@ -35,5 +37,6 @@ jobs:
 
     uses: ./.github/workflows/release_npm.yml
     with:
+      name: ${{ matrix.package.name }}
       tagPattern: ${{ matrix.package.tagPattern }}
       workingDirectory: ${{ matrix.package.path }}
