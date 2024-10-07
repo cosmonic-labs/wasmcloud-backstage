@@ -24,7 +24,7 @@ jobs:
           } >> "$GITHUB_OUTPUT"
 
     outputs:
-      workspaces: ${{ steps.workspaces.outputs.workspaces }}
+      workspaces: ${{ fromJson(steps.workspaces.outputs.workspaces) }}
 
   release:
     runs-on: ubuntu-latest
