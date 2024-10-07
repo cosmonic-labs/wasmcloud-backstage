@@ -1,6 +1,12 @@
 name: Setup Node and Package Manager
 description: 'Set up Node.js and the package manager for the repository'
 
+inputs:
+  token:
+    description: 'The token to use for the package manager'
+    required: false
+    default: ''
+
 runs:
   using: composite
   steps:
@@ -15,6 +21,8 @@ runs:
       with:
         node-version: '20'
         cache: yarn
+        registry-url: 'https://registry.npmjs.org'
+        token: ${{ inputs.token }}
 
     - name: Install dependencies
       shell: bash

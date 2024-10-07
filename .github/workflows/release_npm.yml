@@ -32,23 +32,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@d632683dd7b4114ad314bca15554477dd762a938
 
-      - name: Check For Release
-        shell: bash
-        run: |
-          if [[ ${{startsWith(github.ref, inputs.tagPattern)}} ]] ; then
-            echo "This is a release tag"
-          else
-            echo "This is not a release tag"
-            exit 1
-          fi
-
       - name: Set up Node
         uses: ./.github/actions/setup-node
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
 
-      - name: types
+      - name: Check NPM User
+        run: npm whoami
+
+      - name: Compile Types
         run: yarn tsc:workspace
 
-      - name: build
+      - name: Build package
         run: yarn build
 
       - name: Publish package
