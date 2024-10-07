@@ -16,12 +16,11 @@ jobs:
         # Get a list of all workspaces in the monorepo, and collect them into a
         # JSON array of objects with keys: name, path, and tagPattern
         run: |
-          yarn workspaces list --json |
-          jq --slurp 'map(select(.name | startswith("@")) | { name: .name, path: ("./" + .location), tagPattern: ("refs/tags/" + .location + "/v*") })'
-          >> "$GITHUB_OUTPUT"
+          workspaces=$(yarn workspaces list --json | jq --slurp 'map(select(.name | startswith("@")) | { name: .name, path: ("./" + .location), tagPattern: ("refs/tags/" + .location + "/v*") })')
+          echo "::set-output name=workspaces::$workspaces"
 
     outputs:
-      workspaces: ${{ steps.workspaces.outputs.stdout }}
+      workspaces: ${{ steps.workspaces.outputs.workspaces }}
 
   release:
     runs-on: ubuntu-latest
