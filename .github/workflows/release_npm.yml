@@ -7,10 +7,16 @@ on:
         description: 'The directory of the package to release'
         required: true
         type: string
+      tagPattern:
+        description: 'The tag pattern to match'
+        required: true
+        type: string
 
 jobs:
   release:
     runs-on: ubuntu-latest
+
+    if: startsWith(github.ref, inputs.tagPattern)
 
     defaults:
       run:

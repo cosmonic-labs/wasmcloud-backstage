@@ -33,7 +33,7 @@ jobs:
         package: ${{ needs.info.outputs.workspaces }}
 
     steps:
-      - if: startsWith(github.ref, matrix.package.tagPattern)
-        uses: ./.github/workflows/release-matrix.yml
+      - uses: ./.github/workflows/release_npm.yml
         with:
-          workingDirectory: matrix.package.path
+          tagPattern: ${{ matrix.package.tagPattern }}
+          workingDirectory: ${{ matrix.package.path }}
