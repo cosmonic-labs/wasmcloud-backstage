@@ -4,6 +4,12 @@
   "main": "src/index.ts",
   "types": "src/index.ts",
   "license": "Apache-2.0",
+  "repository": "https://github.com/cosmonic-labs/wasmcloud-backstage",
+  "homepage": "https://github.com/cosmonic-labs/wasmcloud-backstage/tree/main/plugins/wasmcloud-backend",
+  "release": {
+    "branch": "main",
+    "tagFormat": "plugins/wasmcloud-backend/v${version}"
+  },
   "publishConfig": {
     "access": "public",
     "main": "dist/index.cjs.js",

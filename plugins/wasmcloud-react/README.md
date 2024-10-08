@@ -1,5 +1,5 @@
-# @cosmonic/backstage-plugin-wasmcloud-react
+# @cosmonic/backstage-plugin-wasmcloud
 
-Welcome to the web library package for the wasmcloud plugin!
+This is the React library for the Backstage plugin for wasmCloud.
 
-_This plugin was created through the Backstage CLI_
+See [the main repository for more information on installation](https://github.com/cosmonic-labs/wasmcloud-backstage/)
