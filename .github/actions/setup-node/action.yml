@@ -23,6 +23,7 @@ runs:
         cache: yarn
         registry-url: 'https://registry.npmjs.org'
         token: ${{ inputs.token }}
+        always-auth: ${{ inputs.token != '' }}
 
     - name: Install dependencies
       shell: bash

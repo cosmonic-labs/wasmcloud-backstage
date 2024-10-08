@@ -16,18 +16,17 @@ on:
         required: true
         type: string
 
+permissions:
+  id-token: write
+
 jobs:
   release:
     name: ${{ inputs.name }}
-
     runs-on: ubuntu-latest
-
     if: startsWith(github.ref, inputs.tagPattern)
-
     defaults:
       run:
         working-directory: ${{ inputs.workingDirectory }}
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@d632683dd7b4114ad314bca15554477dd762a938
@@ -36,9 +35,6 @@ jobs:
         uses: ./.github/actions/setup-node
         with:
           token: ${{ secrets.NPM_TOKEN }}
-
-      - name: Check NPM User
-        run: npm whoami
 
       - name: Compile Types
         run: yarn tsc:workspace

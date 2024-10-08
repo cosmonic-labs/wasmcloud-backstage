@@ -19,5 +19,8 @@ jobs:
 
   release:
     needs: [build, test]
+    secrets: inherit
+    permissions:
+      id-token: write
     if: github.ref_type == 'tag'
     uses: ./.github/workflows/release_matrix.yml

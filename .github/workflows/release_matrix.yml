@@ -3,38 +3,36 @@ name: Release
 on:
   workflow_call: {}
 
+permissions:
+  id-token: write
+
 jobs:
   info:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@d632683dd7b4114ad314bca15554477dd762a938
-
       - name: Get Workspaces
         id: workspaces
         # Get a list of all workspaces in the monorepo, and collect them into a
         # JSON array of objects with keys: name, path, and tagPattern
+        # then, filter the list to only the workspace that matches the current ref
         run: |
           yarn workspaces list --json | jq --slurp 'map(select(.name | startswith("@")) | { name: .name, path: ("./" + .location), tagPattern: ("refs/tags/" + .location + "/v") })' > /tmp/workspaces.json
           {
             echo "workspaces<<EOF"
-            cat /tmp/workspaces.json
+            cat /tmp/workspaces.json | jq --arg ref "${{ github.ref }}" 'map(. as $x | select($ref | startswith($x.tagPattern)))'
             echo EOF
           } >> "$GITHUB_OUTPUT"
-
     outputs:
       workspaces: ${{ steps.workspaces.outputs.workspaces }}
 
   release:
-    name: ${{ matrix.package.name }}
-
     needs: info
-
+    secrets: inherit
     strategy:
       matrix:
         package: ${{ fromJson(needs.info.outputs.workspaces) }}
-
     uses: ./.github/workflows/release_npm.yml
     with:
       name: ${{ matrix.package.name }}
