@@ -4160,9 +4160,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@backstage/plugin-catalog-graph@npm:^0.4.9":
-  version: 0.4.9
-  resolution: "@backstage/plugin-catalog-graph@npm:0.4.9"
+"@backstage/plugin-catalog-graph@npm:^0.4.10":
+  version: 0.4.10
+  resolution: "@backstage/plugin-catalog-graph@npm:0.4.10"
   dependencies:
     "@backstage/catalog-client": "npm:^1.7.0"
     "@backstage/catalog-model": "npm:^1.7.0"
@@ -4170,7 +4170,7 @@ __metadata:
     "@backstage/core-components": "npm:^0.15.0"
     "@backstage/core-plugin-api": "npm:^1.9.4"
     "@backstage/frontend-plugin-api": "npm:^0.8.0"
-    "@backstage/plugin-catalog-react": "npm:^1.13.0"
+    "@backstage/plugin-catalog-react": "npm:^1.13.1"
     "@backstage/types": "npm:^1.1.1"
     "@material-ui/core": "npm:^4.12.2"
     "@material-ui/icons": "npm:^4.9.1"
@@ -4185,7 +4185,7 @@ __metadata:
     react: ^16.13.1 || ^17.0.0 || ^18.0.0
     react-dom: ^16.13.1 || ^17.0.0 || ^18.0.0
     react-router-dom: 6.0.0-beta.0 || ^6.3.0
-  checksum: 10c0/095cf433889c54860cdb9a477f933505a8723eb078b6c969d3aa54a59cc4658b70327a97e6e791a91ae722a5947363807a4c65df8f1011a633759361be3cb7ab
+  checksum: 10c0/6ee8953bed4e08894ec05ef1a3e88a7f6e69f23443af4ffd1da8e0d8cdb9be37761217578564178e7af269addaf058cc02f818fb8d6ce3a0d5fee7cc6fbf872d
   languageName: node
   linkType: hard
 
@@ -13693,7 +13693,7 @@ __metadata:
     "@backstage/plugin-api-docs": "npm:^0.11.9"
     "@backstage/plugin-catalog": "npm:^1.23.0"
     "@backstage/plugin-catalog-common": "npm:^1.1.0"
-    "@backstage/plugin-catalog-graph": "npm:^0.4.9"
+    "@backstage/plugin-catalog-graph": "npm:^0.4.10"
     "@backstage/plugin-catalog-import": "npm:^0.12.3"
     "@backstage/plugin-catalog-react": "npm:^1.13.0"
     "@backstage/plugin-kubernetes": "npm:^0.11.14"
