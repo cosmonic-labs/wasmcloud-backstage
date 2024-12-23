@@ -40,7 +40,7 @@
     "@backstage/core-components": "^0.15.0",
     "@backstage/core-plugin-api": "^1.9.4",
     "@backstage/plugin-catalog-common": "^1.1.0",
-    "@backstage/plugin-catalog-react": "^1.13.0",
+    "@backstage/plugin-catalog-react": "^1.15.0",
     "@backstage/theme": "^0.5.7",
     "@cosmonic/backstage-plugin-wasmcloud-common": "workspace:^",
     "@cosmonic/backstage-plugin-wasmcloud-react": "workspace:^",
